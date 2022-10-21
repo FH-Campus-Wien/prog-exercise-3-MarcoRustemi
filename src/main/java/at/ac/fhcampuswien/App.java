@@ -2,7 +2,6 @@ package at.ac.fhcampuswien;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.SimpleTimeZone;
 
 public class App {
     // Implement all methods as public static
@@ -90,7 +89,7 @@ public class App {
         int min = 1;
         int max = 100;
         int ranNum;
-        ranNum = r.nextInt(max ) +min;
+        ranNum = r.nextInt(max) +min;
         return ranNum;
     }
     public static boolean swapArrays (int[] array1, int[] array2)
@@ -120,8 +119,39 @@ public class App {
     }
     public static String camelCase(String input)
     {
-        String String;
-        return String="";
+        char[] chArray= input.toCharArray();
+        StringBuilder output = new StringBuilder();
+        boolean empty = true;
+
+        for(char c: chArray)
+        {
+            if (c==' ')
+            {
+                empty = true;
+            }
+            if (empty==true)
+            {
+
+                if (c>='A'&& c<='Z')
+                {
+                    output.append(c);
+                    empty = false;
+                }
+                else if (c >= 'a' && c <= 'z')
+                {
+                    output.append((char)(c - 32));
+                    empty = false;
+                }
+            }
+
+            else
+            {
+                if (c>='A'&&c<='Z') output.append((char) (c+ 32));
+                else if (c>='a'&&c<='z')output.append(c);
+            }
+        }
+
+        return output.toString();
     }
     public static int checkDigit(int[] code)
     {
@@ -150,11 +180,10 @@ public class App {
         // test your method implementations here
         // make method calls
         // print their results
-        // etc.
-        int random;
+        // etc
         oneMonthCalendar(30,5);
         lcg(1);
-        random=randomNumberBetweenOneAndHundred();
-        guessingGame(random);
+        guessingGame(randomNumberBetweenOneAndHundred());
+        System.out.println(camelCase("HalLo mY NaMe is MaRco,. haha"));
     }
 }
