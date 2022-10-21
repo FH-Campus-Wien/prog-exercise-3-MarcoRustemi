@@ -90,7 +90,7 @@ public class App {
         int min = 1;
         int max = 100;
         int ranNum;
-        ranNum = r.nextInt(max-min) +min;
+        ranNum = r.nextInt(max) +min;
         return ranNum;
     }
     public static boolean swapArrays (int[] array1, int[] array2)
